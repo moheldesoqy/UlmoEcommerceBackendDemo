@@ -22,6 +22,18 @@
   <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
   [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
 
+## About
+
+This repository contains a small backend demo built with NestJS to complement the Ulmo E-commerce UI kit available on Figma. The Ulmo UI kit, designed for e-commerce applications, provides a sleek and modern interface for your online store.
+
+## Features
+
+User Authentication: Secure user authentication endpoints to ensure a protected user experience.
+
+Product Information API: API endpoints for retrieving product information, facilitating seamless integration with the Ulmo UI kit.
+
+Data Storage and Retrieval: Illustrates data storage and retrieval mechanisms essential for e-commerce platforms.
+
 ## Description
 
 [Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.

@@ -1,0 +1,55 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+
+generator client {
+  provider = "prisma-client-js"
+  binaryTargets = ["native", "darwin-arm64"]
+}
+
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+model categories {
+  id   String @id @default(auto()) @map("_id") @db.ObjectId
+  name  String   @unique  
+  image String?
+  products Product[]
+}
+
+model Product {
+  id        String    @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  price     String
+  isFavorited Boolean
+  description String
+  image String
+  discountPercentage String
+  category  categories  @relation(fields: [categoryId], references: [id])
+  categoryId String
+  variations Variations[]
+}
+
+model Variations {
+  id String    @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  options Options[]
+  productId String
+  product  Product @relation(fields: [productId], references: [id])
+}
+
+model Options {
+  id String    @id @default(auto()) @map("_id") @db.ObjectId
+  value String
+  description String
+  variationId String
+  variation  Variations @relation(fields: [variationId], references: [id])
+}
+
+model Users {
+  id String    @id @default(auto()) @map("_id") @db.ObjectId
+  name String
+  password String
+}
